@@ -10,7 +10,7 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 import java.util.regex.Pattern;
 
 @Configuration
-@ComponentScan(basePackages={"de"},
+@ComponentScan(basePackages={"de.kacperbak"},
     excludeFilters={
         @Filter(type= FilterType.CUSTOM, value=WebPackage.class)
     })
