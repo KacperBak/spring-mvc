@@ -1,4 +1,24 @@
 apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+buildscript {
+    repositories {
+        jcenter()
+        // enable this to use snapshot versions of Gretty:
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+    }
+}
+
+gretty {
+    servletContainer = 'tomcat8'
+//    port = 8081
+//    contextPath = '/spring-mvc'
+    // ... many more properties
+}
 
 dependencies {
     compile "org.springframework:spring-webmvc:$springVersion"
@@ -25,10 +45,11 @@ repositories {
     maven { url 'http://maven.springframework.org/snapshot' }
     maven { url 'http://download.java.net/maven/2' }
     mavenCentral()
+    jcenter()
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.5'
 }
 
 war {
