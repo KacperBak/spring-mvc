@@ -1,15 +1,4 @@
 apply plugin: 'war'
-apply plugin: 'com.bmuschko.tomcat'
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath "com.bmuschko:gradle-tomcat-plugin:$gradlePluginEmbeddedTomcatVersion"
-    }
-}
 
 dependencies {
     compile "org.springframework:spring-webmvc:$springVersion"
@@ -27,14 +16,6 @@ dependencies {
     testCompile "org.springframework:spring-test:$springVersion"
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
-
-    /*
-    * Embedded tomcat gradle plugin to launch the WAR directly without deployment on a real webserver
-    * See more details on: https://github.com/bmuschko/gradle-tomcat-plugin
-    * */
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${embeddedTomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${embeddedTomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:${embeddedTomcatVersion}"
 
 }
 
