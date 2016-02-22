@@ -4,7 +4,7 @@ apply plugin: 'org.akhikhl.gretty'
 buildscript {
     repositories {
         jcenter()
-        // enable this to use snapshot versions of Gretty:
+        // engable this to use snapshot versions of Gretty:
         // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
     }
 
@@ -15,9 +15,9 @@ buildscript {
 
 gretty {
     servletContainer = 'tomcat8'
-//    port = 8081
-//    contextPath = '/spring-mvc'
-    // ... many more properties
+    port = 8080
+    contextPath = '/spring-mvc'
+// ... many more properties
 }
 
 dependencies {
