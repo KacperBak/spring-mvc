@@ -1,14 +1,23 @@
 apply plugin: 'war'
-apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'org.akhikhl.gretty'
 
 buildscript {
     repositories {
         jcenter()
+        // engable this to use snapshot versions of Gretty:
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
     }
 
     dependencies {
-        classpath "com.bmuschko:gradle-tomcat-plugin:$gradlePluginEmbeddedTomcatVersion"
+        classpath 'org.akhikhl.gretty:gretty:+'
     }
+}
+
+gretty {
+    servletContainer = 'tomcat8'
+    port = 8080
+    contextPath = '/spring-mvc'
+// ... many more properties
 }
 
 dependencies {
@@ -28,14 +37,6 @@ dependencies {
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
 
-    /*
-    * Embedded tomcat gradle plugin to launch the WAR directly without deployment on a real webserver
-    * See more details on: https://github.com/bmuschko/gradle-tomcat-plugin
-    * */
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${embeddedTomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${embeddedTomcatVersion}",
-            "org.apache.tomcat.embed:tomcat-embed-jasper:${embeddedTomcatVersion}"
-
 }
 
 repositories {
@@ -44,6 +45,7 @@ repositories {
     maven { url 'http://maven.springframework.org/snapshot' }
     maven { url 'http://download.java.net/maven/2' }
     mavenCentral()
+    jcenter()
 }
 
 task wrapper(type: Wrapper) {
