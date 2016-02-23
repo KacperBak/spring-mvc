@@ -3,6 +3,7 @@
 <head>
     <title>Spring Home</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar-fixed-top.css" />">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/ie10-viewport-bug-workaround.css" />">
@@ -16,8 +17,37 @@
     <![endif]-->
 </head>
 <body>
-    <h1>Hello Spring MVC</h1>
-    <div>...</div>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Spring-mvc</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Words</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <h1>Spring mvc</h1>
+            <p>This example is a quick exercise to Spring4 techniques</p>
+        </div>
+
+    </div> <!-- /container -->
 
 
     <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
