@@ -45,7 +45,7 @@
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
         <h1>Word</h1>
-        <p>...</p>
+        <p>Save the word!</p>
     </div>
 
 </div> <!-- /container -->

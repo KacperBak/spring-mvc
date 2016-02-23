@@ -22,7 +22,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -43,10 +44,28 @@
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div>
         <h1>Words</h1>
-        <p>...</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Language</th>
+                    <th>Word</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${wordsModel}" var="wordItem">
+                    <tr>
+                        <td><c:out value="${wordItem.id}"/></td>
+                        <td><c:out value="${wordItem.language}"/></td>
+                        <td><c:out value="${wordItem.characters}"/></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
+
 
 </div> <!-- /container -->
 
@@ -55,6 +74,6 @@
 <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src=<c:url value="/resources/js/ie10-viewport-bug-workaround.js" />></script>
+<script src=<c:url value="/resources/js/ie10-viewport-bug-workaround.js"/>></script>
 </body>
 </html>
