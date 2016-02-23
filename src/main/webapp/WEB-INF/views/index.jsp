@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
     <title>Spring Home</title>
@@ -18,6 +19,12 @@
 </head>
 <body>
 
+    <%-- Start Application scope variables --%>
+    <s:url value="/"  var="indexUrl" scope="application"/>
+    <s:url value="/words"  var="wordsUrl" scope="application"/>
+
+    <%-- End  Application scope variables --%>
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -28,12 +35,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Spring-mvc</a>
+                <a class="navbar-brand" href="${indexUrl}">Spring-mvc</a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Words</a></li>
+                    <li><a href="#">Edit a word</a></li>
+                    <li><a href="${wordsUrl}">Show all words</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
