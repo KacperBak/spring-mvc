@@ -5,9 +5,6 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Created by bakka on 19.02.16.
- */
 public class SpringMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     private static final String DEV_PROFILE = "dev";
