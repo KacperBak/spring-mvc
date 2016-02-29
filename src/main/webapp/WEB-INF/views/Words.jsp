@@ -1,9 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Spring Home</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />">
+    <title>Words</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/navbar-fixed-top.css" />">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -13,17 +12,11 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-        <script src="<c:url value="/resources/js/html5shiv.min.js" />"></script>
-        <script src="<c:url value="/resources/js/respond.min.js" />"></script>
+    <script src="<c:url value="/resources/js/html5shiv.min.js" />"></script>
+    <script src="<c:url value="/resources/js/respond.min.js" />"></script>
     <![endif]-->
 </head>
 <body>
-
-<%-- Start Application scope variables --%>
-<s:url value="/" var="indexUrl" scope="application"/>
-<s:url value="/words" var="wordsUrl" scope="application"/>
-
-<%-- End  Application scope variables --%>
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -42,7 +35,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#">Edit a word</a></li>
-                <li><a href="${wordsUrl}">Show all words</a></li>
+                <li class="active"><a href="${wordsUrl}">Show all words</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -51,30 +44,28 @@
 <div class="container">
 
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Spring mvc</h1>
-        <p>This example is a quick exercise to Spring4 techniques</p>
-
-
+    <div>
+        <h1>Words</h1>
         <table class="table">
             <thead>
-            <tr>
-                <th>Property</th>
-                <th>Value</th>
-            </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Language</th>
+                    <th>Word</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>defaultProfiles</td>
-                <td>${defaultProfiles}</td>
-            </tr>
-            <tr>
-                <td>activeProfiles</td>
-                <td>${activeProfiles}</td>
-            </tr>
+                <c:forEach items="${wordsModel}" var="wordItem">
+                    <tr>
+                        <td><c:out value="${wordItem.id}"/></td>
+                        <td><c:out value="${wordItem.language}"/></td>
+                        <td><c:out value="${wordItem.characters}"/></td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
     </div>
+
 
 </div> <!-- /container -->
 
